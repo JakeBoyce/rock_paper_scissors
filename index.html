@@ -5,6 +5,9 @@
 </head>
 <body>
   <script>
+    let playerScore = 0;
+    let computerScore = 0;
+    
     function computerPlay() {
       let choice = Math.floor((Math.random() * 3) + 1);
 
@@ -54,13 +57,29 @@
       }
       
       if (playerWins) {
+        playerScore++;
         return "You win! " + playerSelection + " beats " + compSelection + "!";
       } else {
+        computerScore++;
         return "You lose... " + compSelection + " beats " + playerSelection + ".";
       }
     }
     
-
+    function game() {
+      let rounds = 0;
+      
+      while (rounds <= 5) {
+        console.log(playRound(prompt("Rock, paper, scissors... SHOOT!", ""), computerPlay()));
+        console.log("Your score: " + playerScore + ". Computer score: " + computerScore + ".");
+        rounds++;
+      }
+      
+      if (playerScore > computerScore) {
+        console.log("You've won the most out of 5 rounds!");
+      } else {
+        console.log("You've lost. The computer outsmarted you more in the 5 rounds.");
+      }
+    }
 
   </script>
 </body>
