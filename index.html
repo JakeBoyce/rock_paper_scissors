@@ -23,6 +23,43 @@
           break;
       }
     }
+    
+    function playRound(player, computer) {
+      let playerSelection = player.toLowerCase();
+      let compSelection = computer.toLowerCase();
+      let playerWins;
+      
+      if (playerSelection == compSelection) {
+        return "Tie!";
+      }
+      
+      if (playerSelection == "rock") {
+        if (compSelection == "paper") {
+          playerWins = false;
+        } else if (compSelection == "scissors") {
+          playerWins = true;
+        }
+      } else if (playerSelection == "paper") {
+        if (compSelection == "rock") {
+          playerWins = true;
+        } else if (compSelection == "scissors") {
+          playerWins = false;
+        }        
+      }else { // playerSelection == "scissors"
+        if (compSelection == "paper") {
+          playerWins = true;
+        } else if (compSelection == "rock") {
+          playerWins = false;
+        }        
+      }
+      
+      if (playerWins) {
+        return "You win! " + playerSelection + " beats " + compSelection + "!";
+      } else {
+        return "You lose... " + compSelection + " beats " + playerSelection + ".";
+      }
+    }
+    
 
 
   </script>
